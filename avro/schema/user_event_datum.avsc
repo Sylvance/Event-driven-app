@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "user_event_datum_record",
+  "name": "user_event_datum",
   "fields": [
     {
       "name": "id",
@@ -18,8 +18,7 @@
       "name": "value",
       "type": {
         "type": "record",
-        "name": "user_record",
-        "namespace": "com.user.records",
+        "name": "user",
         "fields": [
           {
             "name": "id",

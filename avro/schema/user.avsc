@@ -1,7 +1,6 @@
 {
   "type": "record",
-  "name": "user_record",
-  "namespace": "com.user.records",
+  "name": "user",
   "fields": [
     {
       "name": "id",

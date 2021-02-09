@@ -1,6 +1,4 @@
-namespace 'com.user.records'
-
-record :user_record do
+record :user do
   required :id, :long
   required :name, :string
   required :email, :string
