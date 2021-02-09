@@ -3,6 +3,6 @@ class UserCreatedConsumer < Racecar::Consumer
 
   def process(message)
     data = JSON.parse(message.value)
-    puts data["user_id"]
+    Rails.logger.info data["user_id"]
   end
 end

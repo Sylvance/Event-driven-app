@@ -77,6 +77,7 @@ class UsersController < ApplicationController
 
     def save_event(user_id, type, value)
       user_event_datum = UserEventDatum.new(user_id: user_id, event_type: type, value: value)
+      DeliveryBoy.deliver_async(value, topic: user_event_datum.event_type)
       user_event_datum.save
     end
 end
