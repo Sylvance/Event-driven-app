@@ -18,5 +18,6 @@ module EventDrivenApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    Avro::Builder.add_load_path("#{Rails.root}/avro/dsl")
   end
 end

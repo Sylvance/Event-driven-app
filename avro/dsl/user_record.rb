@@ -1,3 +1,5 @@
+namespace 'com.user.records'
+
 record :user_record do
   required :id, :long
   required :name, :string
