@@ -1,24 +1,61 @@
-# README
+# Event Driven App
+Ruby on Rails App to demonstrate event streaming using kafka.
+## Installing Kafka for Mac
+Prerequisite: Java installed on Mac.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To install do:
 
-Things you may want to cover:
+```bash
+$ brew install kafka
+```
 
-* Ruby version
+Run the kafka & zookeeper servers:
 
-* System dependencies
+```bash
+$ zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties
+$ kafka-server-start /usr/local/etc/kafka/server.properties
+```
 
-* Configuration
+To run as background services do:
 
-* Database creation
+```bash
+$ brew services start zookeeper
+$ brew services start kafka
+```
 
-* Database initialization
+Edit configuration of kafka at `/usr/local/etc/kafka/server.properties`.
 
-* How to run the test suite
+Edit configuration of zookeeper at `/usr/local/etc/kafka/zookeeper.properties`.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Playing with Kafka on the terminal
+### Create Kafka Topic:
+A topic is a category or feed name to which records are published. Topics in Kafka are always multi-subscriber; that is, a topic can have zero, one, or many consumers that subscribe to the data written to it.
 
-* Deployment instructions
+```bash
+$ kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+```
+Here we have created a topic name test.
 
-* ...
+### Initialize Producer console:
+Now we will initialize the Kafka producer console, which will listen to localhost at port 9092 at topic test :
+
+```bash
+$ kafka-console-producer --broker-list localhost:9092 --topic test
+
+>send first message
+>send second message
+>wow it is working
+```
+### Initialize Consumer console:
+Now we will initialize the Kafka consumer console, which will listen to bootstrap server localhost at port 9092 at topic test from beginning:
+
+```bash
+$ kafka-console-consumer --bootstrap-server localhost:9092 --topic test --from-beginning
+
+send first message
+send second message
+wow it is working
+```
+
+## Contributors
+Rubyist.
