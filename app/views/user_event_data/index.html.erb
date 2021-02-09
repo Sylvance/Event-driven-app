@@ -16,16 +16,10 @@
     <% @user_event_data.each do |user_event_datum| %>
       <tr>
         <td><%= user_event_datum.user_id %></td>
-        <td><%= user_event_datum.type %></td>
+        <td><%= user_event_datum.event_type %></td>
         <td><%= user_event_datum.value %></td>
         <td><%= link_to 'Show', user_event_datum %></td>
-        <td><%= link_to 'Edit', edit_user_event_datum_path(user_event_datum) %></td>
-        <td><%= link_to 'Destroy', user_event_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User Event Datum', new_user_event_datum_path %>

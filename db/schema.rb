@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_072133) do
 
   create_table "user_event_data", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "type", default: 0
+    t.integer "event_type", default: 0
     t.hstore "value", default: {}, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
