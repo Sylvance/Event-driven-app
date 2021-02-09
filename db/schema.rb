@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_072133) do
   create_table "users", force: :cascade do |t|
     t.string "name", limit: 30
     t.string "email", limit: 30
+    t.boolean "deleted", default: false
     t.text "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
