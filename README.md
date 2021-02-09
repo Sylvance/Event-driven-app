@@ -1,5 +1,26 @@
 # Event Driven App
 Ruby on Rails App to demonstrate event streaming using kafka.
+
+## Installation
+Clone this repo and change directory into it. Run:
+- `rails db:create db:migrate`
+
+## Running the server
+Run:
+- `rails s`
+
+## Generating a new Avro schema
+Add an avro ruby dsl file under `#{Rails.root}/avro/dsl`. For instance;
+```ruby
+record :user do
+  required :id, :int
+  required :name, :string
+  required :email, :string
+end
+```
+
+Then run:
+- `rails avro:generate`
 ## Installing Kafka for Mac
 Prerequisite: Java installed on Mac.
 

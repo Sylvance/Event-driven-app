@@ -1,0 +1,47 @@
+{
+  "type": "record",
+  "name": "user_event_datum_record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "user_id",
+      "type": "string"
+    },
+    {
+      "name": "event_type",
+      "type": "string"
+    },
+    {
+      "name": "value",
+      "type": {
+        "type": "record",
+        "name": "user_record",
+        "fields": [
+          {
+            "name": "id",
+            "type": "long"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "deleted",
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "default": null
+          }
+        ]
+      }
+    }
+  ]
+}
