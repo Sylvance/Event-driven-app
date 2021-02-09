@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_02_09_072133) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
+  create_table "user_event_data", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "type", default: 0
+    t.hstore "value", default: {}, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_event_data_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name", limit: 30
+    t.string "email", limit: 30
+    t.text "bio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  add_foreign_key "user_event_data", "users"
 end

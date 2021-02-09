@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    save_event(@user.id, :user_viewed, @user.to_h)
   end
 
   # GET /users/new
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        save_event(@user.id, :user_created, @user.to_h)
         format.html { redirect_to @user, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -38,6 +40,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        save_event(@user.id, :user_updated, @user.to_h)
         format.html { redirect_to @user, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -51,6 +54,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
+      save_event(@user.id, :user_deleted, @user.to_h)
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
@@ -65,5 +69,10 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :bio)
+    end
+
+    def save_event(user_id, type, value)
+      user_event_datum = UserEventDatum.new(user_id: user_id, type: type, value: value)
+      user_event_datum.save
     end
 end
