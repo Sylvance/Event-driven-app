@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 2021_02_09_072133) do
   enable_extension "hstore"
   enable_extension "plpgsql"
 
-  create_table "user_event_data", force: :cascade do |t|
+  create_table "user_events", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "event_type", default: 0
     t.hstore "value", default: {}, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_user_event_data_on_user_id"
+    t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,5 +35,5 @@ ActiveRecord::Schema.define(version: 2021_02_09_072133) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "user_event_data", "users"
+  add_foreign_key "user_events", "users"
 end

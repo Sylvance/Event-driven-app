@@ -1,2 +1,2 @@
-module UserEventDataHelper
+module UserEventsHelper
 end

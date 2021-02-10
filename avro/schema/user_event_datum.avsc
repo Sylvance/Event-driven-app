@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "user_event_datum",
+  "name": "user_event",
   "fields": [
     {
       "name": "id",
@@ -34,10 +34,7 @@
           },
           {
             "name": "deleted",
-            "type": [
-              "null",
-              "boolean"
-            ],
+            "type": ["null", "boolean"],
             "default": null
           }
         ]

@@ -1,8 +1,8 @@
-class CreateUserEventData < ActiveRecord::Migration[6.1]
+class CreateUserEvents < ActiveRecord::Migration[6.1]
   def change
     enable_extension 'hstore' unless extension_enabled?('hstore')
 
-    create_table :user_event_data do |t|
+    create_table :user_events do |t|
       t.references :user, null: false, foreign_key: true
       t.integer :event_type, default: 0
       t.hstore :value, default: '', null: false
