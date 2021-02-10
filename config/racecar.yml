@@ -15,6 +15,6 @@ test:
 production:
   <<: *common
   brokers:
-    - kafka1.myapp.com:9092
-    - kafka2.myapp.com:9092
-    - kafka3.myapp.com:9092
+    - kafka1.event_driven_app.com:9092
+    - kafka2.event_driven_app.com:9092
+    - kafka3.event_driven_app.com:9092
