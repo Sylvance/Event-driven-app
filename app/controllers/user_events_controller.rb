@@ -3,7 +3,7 @@ class UserEventsController < ApplicationController
 
   # GET /user_events or /user_events.json
   def index
-    @user_events = UserEvents.all
+    @user_events = UserEvent.all
   end
 
   # GET /user_events/1 or /user_events/1.json
@@ -13,6 +13,6 @@ class UserEventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_event
-      @user_event = UserEvents.find(params[:id])
+      @user_event = UserEvent.find(params[:id])
     end
 end
