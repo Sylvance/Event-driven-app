@@ -1,3 +1,5 @@
+namespace 'users'
+
 record :user do
   required :id, :long
   required :name, :string

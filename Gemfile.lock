@@ -64,8 +64,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     avro (1.10.1)
       multi_json (~> 1)
-    avro-builder (0.17.0)
-      avro (>= 1.7.0, < 1.11)
     avro-patches (1.0.2)
       avro (>= 1.9.0, < 1.11)
     avro-resolution_canonical_form (0.3.0)
@@ -241,9 +239,10 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
-  avro-builder
+  avro-patches
   avromatic
   bootsnap (>= 1.4.4)
   byebug

@@ -1,3 +1,5 @@
+namespace 'users'
+
 record :user_event do
   required :id, :long
   required :user_id, :string

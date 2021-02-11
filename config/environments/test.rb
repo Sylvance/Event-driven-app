@@ -57,5 +57,4 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
-  config.x.avro_schema_registry_url = 'http://localhost:3808/'
 end
